@@ -1,13 +1,11 @@
 import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import userPersisterReducer from '../reducer';
+import {persistedReducer} from '../reducer';
 import logger from 'redux-logger';
 import persistStore from 'redux-persist/es/persistStore';
 
 export const store = configureStore({
-  reducer: {
-    userData: userPersisterReducer,
-  },
+  reducer: persistedReducer,
   middleware: [thunk, logger],
 });
 

@@ -7,8 +7,10 @@ export type orderList = {
   Weight: number;
   WeightScale: string;
   WorkerID: string;
-  sampleWeight: string;
+  sampleWeight: number;
   touch: string;
+  isCancelled: boolean;
+  sampleWeightScale: string;
   amount: number;
 };
 
@@ -20,6 +22,21 @@ export type customerDataType = {
   M_Number: string;
   Name: string;
 };
+
+export type workerDataType = {
+  Name: string;
+  Status: string;
+  WNumber: string;
+  WorkerID: string;
+};
+
+export type allMergedData = {
+  cust: customerDataType[];
+  main: MainOrderType[];
+  worker: workerDataType[];
+};
+
+export type scale = 'gm' | 'kg';
 
 export interface MainOrderType extends orderList {
   customerName: string;
